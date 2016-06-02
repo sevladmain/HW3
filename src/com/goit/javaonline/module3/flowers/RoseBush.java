@@ -1,4 +1,4 @@
-package com.goit.javaonline.flowers;
+package com.goit.javaonline.module3.flowers;
 
 import java.util.List;
 

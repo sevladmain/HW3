@@ -1,4 +1,4 @@
-package com.goit.javaonline.flowers;
+package com.goit.javaonline.module3.flowers;
 
 /**
  * Created by SeVlad on 28.05.2016.

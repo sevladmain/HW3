@@ -1,4 +1,4 @@
-package com.goit.javaonline.com.goit.module4;
+package com.goit.javaonline.module4;
 
 /**
  * Created by SeVlad on 02.06.2016.

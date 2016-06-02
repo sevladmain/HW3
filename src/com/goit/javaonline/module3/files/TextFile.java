@@ -1,4 +1,4 @@
-package com.goit.javaonline.files;
+package com.goit.javaonline.module3.files;
 
 /**
  * Created by SeVlad on 28.05.2016.

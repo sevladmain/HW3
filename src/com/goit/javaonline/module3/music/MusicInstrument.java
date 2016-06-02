@@ -1,4 +1,4 @@
-package com.goit.javaonline.music;
+package com.goit.javaonline.module3.music;
 
 /**
  * Created by SeVlad on 28.05.2016.
