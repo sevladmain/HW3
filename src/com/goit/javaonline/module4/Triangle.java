@@ -35,7 +35,7 @@ public class Triangle extends Figure {
     }
 
     @Override
-    double GetSquare() {
+    public double GetSquare() {
         return height * side / 2;
     }
 }

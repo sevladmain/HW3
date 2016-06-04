@@ -34,7 +34,7 @@ public class Rectangle extends Figure {
     }
 
     @Override
-    double GetSquare() {
+    public double GetSquare() {
         return side1 * side2;
     }
 }

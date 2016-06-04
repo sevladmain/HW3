@@ -21,7 +21,7 @@ public class Circle extends Figure{
     }
 
     @Override
-    double GetSquare() {
+    public double GetSquare() {
         return Math.PI * Math.pow (radius, 2);
     }
 }
