@@ -10,10 +10,10 @@ public class TemperatureTransform {
         celTemp = 0;
         farTemp = 32;
     }
-    public double Celsium2Farenh(double c){
+    public static double Celsium2Farenh(double c){
         return c * 9 / 5 + 32;
     }
-    public double Farenh2Celsium (double f){
+    public static double Farenh2Celsium (double f){
         return (f - 32) * 5 / 9;
     }
     public double getCelTemp() {
