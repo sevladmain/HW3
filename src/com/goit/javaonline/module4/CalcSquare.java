@@ -5,13 +5,16 @@ package com.goit.javaonline.module4;
  */
 public class CalcSquare {
     public double TriangleSquare(double height, double side){
-        return height * side / 2;
+        Triangle triangle = new Triangle(height, side);
+        return triangle.GetSquare();
     }
     public double RectangleSquare(double side1, double side2){
-        return side1 * side2;
+        Rectangle rectangle = new Rectangle(side1, side2);
+        return rectangle.GetSquare();
     }
     public double CircleSquare(double radius){
-        return Math.PI * Math.pow (radius, 2);
+        Circle circle = new Circle(radius);
+        return circle.GetSquare();
     }
 
 }
