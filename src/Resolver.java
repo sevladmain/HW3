@@ -29,6 +29,5 @@ public class Resolver {
         CalcLength l = new CalcLength();
         double x1 = 3, y1 = 0, x2 = 0, y2 = 4;
         System.out.println("Length between points (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + l.CalculateLength(x1, y1, x2, y2));
-
     }
 }
