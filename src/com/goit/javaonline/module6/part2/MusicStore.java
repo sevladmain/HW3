@@ -6,24 +6,51 @@ import java.util.*;
  * Created by SeVlad on 28.05.2016.
  */
 public class MusicStore {
-    private List<MusicInstrument> instruments;
+    private List<MusicInstrument> warehouse;
 
-    public List<MusicInstrument> getInstruments() {
-        return instruments;
+    public MusicStore() {
+        warehouse = new ArrayList<>();
     }
 
-    public void setInstruments(List<MusicInstrument> instruments) {
-        this.instruments = instruments;
+    public List<MusicInstrument> getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(List<MusicInstrument> warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public void GenerateWarehouse(){
+        for (int i = 0; i < 10; i++) {
+            switch (i % 3){
+                case 0: warehouse.add(new Guitar("guitar"));
+                    break;
+                case 1: warehouse.add(new Piano("piano"));
+                    break;
+                case 2: warehouse.add(new Trumpet("trumpet"));
+                    break;
+            }
+        }
     }
 
     public void sellInstrument(MusicInstrument m){
-
+        /*boolean  isNotSold = true;
+        Iterator<MusicInstrument> iterator = warehouse.iterator();
+        while (iterator.hasNext() && isNotSold){
+            if (iterator.next().getName() == m.getName()){
+                iterator.remove();
+                isNotSold = false;
+            }
+        }
+        if(isNotSold){
+            throw new IllegalStateException("Can't find instrument " + m.getName() + " on a warehouse");
+        }*/
+        if (!warehouse.remove(m)){
+            throw new IllegalStateException("Can't find instrument " + m.getName() + " on a warehouse");
+        }
     }
-    public void buyInstrument(MusicInstrument m){
-
-    }
-    public static List<MusicInstrument> prepareInstruments(Map<String, Integer> order) throws WrongInstrumentException{
-        List<MusicInstrument> musicInstruments = new ArrayList<>();
+    public  List<MusicInstrument> prepareInstruments(Map<String, Integer> order) throws WrongInstrumentException{
+        List<MusicInstrument> musicInstruments = new ArrayList<>(order.size());
         MusicInstrument instrument;
         for (Map.Entry<String, Integer> item: order.entrySet()) {
             if (item.getValue() <= 0){
@@ -45,29 +72,11 @@ public class MusicStore {
             }
 
         }
+        //deleting shipped warehouse from shop
+       for(MusicInstrument item : musicInstruments) {
+           sellInstrument(item);
+        }
         return musicInstruments;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner =  new Scanner(System.in);
-        System.out.println("Enter number of instruments: ");
-        int numberOfInstruments = scanner.nextInt();
-        String instrument;
-        int quantity;
-        Map<String, Integer> order = new HashMap<String, Integer>();
-        List<MusicInstrument> musicInstruments = new ArrayList<>();
-        for (int index = 0; index < numberOfInstruments; index++) {
-            System.out.println("Enter instrument");
-            instrument = scanner.next();
-            System.out.println("Enter quantity of " + instrument + " :");
-            quantity = scanner.nextInt();
-            order.put(instrument, quantity);
-        }
-        try {
-            musicInstruments = prepareInstruments(order);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        System.out.println(musicInstruments.toString());
-    }
 }
