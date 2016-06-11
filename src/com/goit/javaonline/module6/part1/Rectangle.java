@@ -17,6 +17,9 @@ public class Rectangle extends Figure {
     }
 
     public void setSide1(double side1) {
+        if (side1 <= 0) {
+            new IllegalArgumentException("Side1 should be positive number");
+        }
         this.side1 = side1;
     }
 
@@ -25,6 +28,9 @@ public class Rectangle extends Figure {
     }
 
     public void setSide2(double side2) {
+        if (side2 <= 0) {
+            new IllegalArgumentException("Side2 should be positive number");
+        }
         this.side2 = side2;
     }
 

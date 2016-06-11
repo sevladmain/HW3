@@ -17,6 +17,9 @@ public class Circle extends Figure {
     }
 
     public void setRadius(double radius) {
+        if (radius < 0 ) {
+            throw new IllegalArgumentException("Radius must be positive number!");
+        }
         this.radius = radius;
     }
 

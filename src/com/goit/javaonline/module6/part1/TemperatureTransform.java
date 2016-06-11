@@ -1,11 +1,13 @@
 package com.goit.javaonline.module6.part1;
 
+import static java.lang.Math.round;
+
 /**
  * Created by SeVlad on 03.06.2016.
  */
 public class TemperatureTransform {
-    private double celTemp;
-    private double farTemp;
+    double celTemp;
+    double farTemp;
     public TemperatureTransform(){
         celTemp = 0;
         farTemp = 32;
@@ -17,6 +19,9 @@ public class TemperatureTransform {
         return (f - 32) * 5 / 9;
     }
     public double getCelTemp() {
+        if (round(farTemp) != round(Celsium2Farenh(celTemp))){
+            throw  new IllegalStateException("Temperature is not valid");
+        }
         return celTemp;
     }
 
@@ -26,6 +31,9 @@ public class TemperatureTransform {
     }
 
     public double getFarTemp() {
+        if (round(farTemp) != round(Celsium2Farenh(celTemp))){
+            throw  new IllegalStateException("Temperature is not valid");
+        }
         return farTemp;
     }
 

@@ -13,6 +13,12 @@ public class Segment {
     }
 
     public Segment(Point point1, Point point2) {
+        if (point1 == null) {
+            throw new IllegalArgumentException("Point1 is not set");
+        }
+        if (point2 == null) {
+            throw new IllegalArgumentException("Point2 is not set");
+        }
         this.point1 = new Point(point1.getX(), point1.getY());
         this.point2 = new Point(point2.getX(), point2.getY());
     }

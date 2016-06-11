@@ -33,17 +33,20 @@ public class ArrayManager {
         }
         return min;
     }
-    public void SetArray(){
+    public void SetArray() {
         Scanner scanner = new Scanner(System.in);
-        for(int index = 0; index < array.length; index++){
+        for (int index = 0; index < array.length; index++) {
             System.out.println("Enter element number " + index);
-            array[index] = scanner.nextInt();
+            try {
+                array[index] = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Sorry, but you not entered int number and program fails");
+                throw e;
+            }
         }
     }
     public void PrintArray(){
-        for (int index = 0; index < array.length; index++){
-            System.out.println("Array[" + index + "] = " + array[index]);
-        }
+        System.out.println(array.toString());
     }
     public void SortArray(boolean isAsc) {
         int temp;

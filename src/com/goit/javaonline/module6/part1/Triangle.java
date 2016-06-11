@@ -34,8 +34,14 @@ public class Triangle extends Figure {
         this.side = side;
     }
 
+    public void CheckStates(){
+        if (height <= 0 || side <= 0){
+            throw new IllegalStateException("Height or side of Triangle is not valid");
+        }
+    }
     @Override
     public double GetSquare() {
+        CheckStates();
         return height * side / 2;
     }
 }
