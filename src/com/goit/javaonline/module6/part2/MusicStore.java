@@ -34,17 +34,6 @@ public class MusicStore {
     }
 
     public void sellInstrument(MusicInstrument m){
-        /*boolean  isNotSold = true;
-        Iterator<MusicInstrument> iterator = warehouse.iterator();
-        while (iterator.hasNext() && isNotSold){
-            if (iterator.next().getName() == m.getName()){
-                iterator.remove();
-                isNotSold = false;
-            }
-        }
-        if(isNotSold){
-            throw new IllegalStateException("Can't find instrument " + m.getName() + " on a warehouse");
-        }*/
         if (!warehouse.remove(m)){
             throw new IllegalStateException("Can't find instrument " + m.getName() + " on a warehouse");
         }
@@ -72,10 +61,19 @@ public class MusicStore {
             }
 
         }
+        //cloning warehouse
+        List<MusicInstrument> warehouseBackUp = new ArrayList<>(warehouse.size());
+        for (MusicInstrument item : warehouse){
+            warehouseBackUp.add(item.clone());
+        }
         //deleting shipped warehouse from shop
        for(MusicInstrument item : musicInstruments) {
-           sellInstrument(item);
+           if(!warehouseBackUp.remove(item)){
+               throw new IllegalStateException("Can't find instrument " + item.getName() + " on a warehouse");
+           }
         }
+        //updating the warehouse
+        warehouse = warehouseBackUp;
         return musicInstruments;
     }
 

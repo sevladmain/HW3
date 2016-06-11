@@ -42,4 +42,8 @@ public class MusicInstrument {
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
     }
+    public MusicInstrument clone(){
+        MusicInstrument musicInstrument = new MusicInstrument(name);
+        return musicInstrument;
+    }
 }

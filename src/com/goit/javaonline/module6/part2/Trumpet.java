@@ -10,6 +10,11 @@ public class Trumpet extends MusicInstrument {
         super(name);
     }
 
+    @Override
+    public MusicInstrument clone() {
+        return new Trumpet(name);
+    }
+
     public int getLength() {
         return length;
     }

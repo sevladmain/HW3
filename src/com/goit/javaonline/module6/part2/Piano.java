@@ -6,6 +6,11 @@ package com.goit.javaonline.module6.part2;
 public class Piano extends MusicInstrument {
     private String country;
 
+    @Override
+    public MusicInstrument clone() {
+        return new Piano(name);
+    }
+
     public Piano(String name) {
         super(name);
     }

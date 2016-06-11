@@ -10,6 +10,11 @@ public class Guitar extends MusicInstrument {
         super(name);
     }
 
+    @Override
+    public MusicInstrument clone() {
+        return new Guitar(name);
+    }
+
     public int getNumStrings() {
         return numStrings;
     }
