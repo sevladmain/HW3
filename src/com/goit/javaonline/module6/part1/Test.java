@@ -57,14 +57,7 @@ public class Test {
                 arrayManager.SetArray();
             } catch (Exception e) {
                 System.out.println("Hold on there and good luck!");
+                throw e;
             }
-            System.out.println("Minimum value is: " + arrayManager.GetMinValue());
-            System.out.println("Maximum value is: " + arrayManager.GetMaxValue());
-            arrayManager.SortArray(true);
-            System.out.println("Array is ordered by ascending");
-            arrayManager.PrintArray();
-            arrayManager.SortArray(false);
-            System.out.println("Array is ordered by descending");
-            arrayManager.PrintArray();
         }
 }

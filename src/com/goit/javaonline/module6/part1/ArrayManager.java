@@ -1,5 +1,6 @@
 package com.goit.javaonline.module6.part1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -46,7 +47,7 @@ public class ArrayManager {
         }
     }
     public void PrintArray(){
-        System.out.println(array.toString());
+        System.out.println(Arrays.toString(array));
     }
     public void SortArray(boolean isAsc) {
         int temp;
