@@ -1,6 +1,7 @@
 package com.goit.javaonline.module8;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -46,15 +47,12 @@ public class TestCollection {
     }
 
     public static void SortFiles(List<File> files) {
-        File file;
         boolean flag = true;
         while (flag) {
             flag = false;
             for (int index = 0; index < files.size() - 1; index++) {
                 if (files.get(index).getFileSize() > files.get(index + 1).getFileSize()) {
-                    file = files.get(index).clone();
-                    files.add(index, files.get(index + 1).clone());
-                    files.add(index + 1, file);
+                    Collections.swap(files, index, index+1);
                     flag = true;
                 }
             }
