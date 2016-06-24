@@ -11,43 +11,19 @@ import java.util.Scanner;
  * Предусмотреть обработку различных ошибок ввода/вывода.
  */
 public class Solution {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
-        CaesarCode code = new CaesarCode();
+        CaesarStreamReader code = new CaesarStreamReader();
         String pass = scanner.nextLine();
-        FileReader reader = null;
-        FileWriter writer = null;
         try {
-            writer = new FileWriter("example.txt");
-            writer.write(code.Encode(pass));
-
-        } catch (FileNotFoundException e){
-            System.out.println("FILE NOT FOUND: " + e.getMessage());
+            code.Write(pass);
         } catch (IOException e){
             System.out.println("IO EXCEPTION: " + e.getMessage());
-        } finally {
-            if (writer != null)
-                writer.close();
         }
-        System.out.println("File saved");
         try {
-            reader = new FileReader("example.txt");
-            StringBuilder builder = new StringBuilder();
-            int c;
-            while ((c = reader.read()) != -1) {
-                builder.append((char)c);
-            }
-            System.out.println("Encode: " + builder);
-            System.out.println("Decode: " + code.Decode(builder.toString()));
-        } catch (FileNotFoundException e){
-            System.out.println("FILE NOT FOUND: " + e.getMessage());
-        } catch (IOException e){
+            code.Read(pass);
+        } catch (IOException e) {
             System.out.println("IO EXCEPTION: " + e.getMessage());
-        } finally {
-            if (reader != null)
-                reader.close();
         }
-
     }
-
 }
