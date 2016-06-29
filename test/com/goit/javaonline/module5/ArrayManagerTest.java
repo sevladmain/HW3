@@ -32,12 +32,8 @@ public class ArrayManagerTest {
     @Test(timeout = 1000)
     public void sortArray() throws Exception {
         arrayManager.SortArray(false);
-        assertEquals(arrayManager.array[0],3);
-        assertEquals(arrayManager.array[1],2);
-        assertEquals(arrayManager.array[2],1);
-        assertEquals(arrayManager.array[3],1);
-        assertEquals(arrayManager.array[4],0);
-
+        int[] expectedArray = new int[]{3, 2, 1, 1, 0};
+        assertArrayEquals(arrayManager.array, expectedArray);
     }
 
 }

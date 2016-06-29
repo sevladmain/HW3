@@ -17,14 +17,15 @@ public class CaesarCodeTest {
 
     @Test(timeout = 1000)
     public void encode() throws Exception {
-        String pass = "HelloWorld";
-        assertTrue(!pass.equals(code.Encode(pass)));
+        String inputString = "HelloWorld";
+        String outputString = "HelloWorld";
+        assertTrue(outputString.equals(code.Encode(inputString)));
     }
 
     @Test(timeout = 1000)
     public void decode() throws Exception {
-        String pass = "HelloWorld";
-        assertTrue(pass.equals(code.Decode(code.Encode(pass))));
+        String inputString = "HelloWorld";
+        assertTrue(inputString.equals(code.Decode(code.Encode(inputString))));
 
     }
 
