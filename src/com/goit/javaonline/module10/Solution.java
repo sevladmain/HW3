@@ -1,7 +1,5 @@
 package com.goit.javaonline.module10;
 
-import com.goit.javaonline.module9.CaesarCode;
-
 import java.io.*;
 import java.util.Scanner;
 
