@@ -22,8 +22,9 @@ public class CaesarStreamReaderTest {
 
     @Test(timeout = 1000)
     public void write() throws Exception {
-        String pass = "HelloWorld";
-        code.Write(pass);
+        String inputString = "HelloWorld";
+        String outputString = "KMSSwCwFSp";
+        code.Write(inputString);
         FileReader reader = null;
         reader = new FileReader(code.fName);
         StringBuilder builder = new StringBuilder();
@@ -32,7 +33,7 @@ public class CaesarStreamReaderTest {
             builder.append((char) c);
         }
 
-        assertTrue(pass.equals(code.Decode(builder.toString())));
+        assertTrue(outputString.equals(builder.toString()));
     }
 
 
