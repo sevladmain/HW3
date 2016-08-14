@@ -1,12 +1,12 @@
 Test for 10000 collection volume:
-|Class       |add     |get     |remove  |contains  |populate  |iterator.add  |iterator.remove |
-|ArrayList   |0,000   |0,150   |0,000   |0,160     |1,720     |2,320         |0,000           |
-|LinkedList  |0,150   |0,000   |0,000   |0,000     |15,430    |0,000         |0,000           |
-|HashSet     |0,150   |0,000   |0,000   |0,000     |2,820     |0,000         |0,000           |
-|TreeSet     |0,000   |0,000   |0,000   |0,000     |2,560     |0,000         |0,000           |
+|Class       |add     |get     |remove  |contains  |populate    |iterator.add  |iterator.remove |
+|ArrayList   |12 113  |4 602   |12 481  |845 807   |4 992 842   |5 130 825     |70 474          |
+|LinkedList  |55 901  |15 347  |15 150  |169 310   |23 867 275  |11 472        |654             |
+|HashSet     |5 445   |359     |13 640  |4 290     |3 344 296   |496           |530             |
+|TreeSet     |3 217   |372     |10 907  |3 999     |8 860 395   |496           |462             |
 Test for 100000 collection volume:
-|Class       |add     |get     |remove  |contains  |populate  |iterator.add  |iterator.remove |
-|ArrayList   |0,460   |0,000   |0,000   |0,390     |64,840    |22,590        |0,000           |
-|LinkedList  |0,340   |0,230   |0,310   |0,630     |185,080   |0,000         |0,000           |
-|HashSet     |0,000   |0,000   |0,000   |0,000     |116,510   |0,000         |0,000           |
-|TreeSet     |0,000   |0,000   |0,000   |0,000     |18,900    |0,000         |0,000           |
+|Class       |add     |get     |remove  |contains  |populate    |iterator.add  |iterator.remove |
+|ArrayList   |59 254  |2 100   |55 387  |725 507   |106 329 877 |22 472 778    |590             |
+|LinkedList  |485 650 |521 563 |531 153 |829 459   |140 377 613 |3 713         |509             |
+|HashSet     |3 499   |342     |17 079  |7 190     |27 162 364  |513           |483             |
+|TreeSet     |3 358   |364     |16 233  |8 871     |21 662 126  |535           |479             |

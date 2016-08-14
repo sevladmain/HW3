@@ -52,9 +52,9 @@ public class Solution {
         saveResult();
     }
     public static void printResult(){
-        String format = "|%1$-12s|%2$-8s|%3$-8s|%4$-8s|%5$-10s|%6$-10s|%7$-14s|%8$-16s|\n";
+        String format = "|%1$-12s|%2$-8s|%3$-8s|%4$-8s|%5$-10s|%6$-12s|%7$-14s|%8$-16s|\n";
         for (int i = 0; i < counts.length; i++) {
-            System.out.println("Test for " + counts[i] + " collection volume:");
+            System.out.println("Test for " + counts[i] + " collection volume (nanoTime):");
             String [] output = new String[methods.length + 1];
             output[0] = "Class";
             for (int j = 0; j < methods.length; j++) {
@@ -64,7 +64,7 @@ public class Solution {
             for (int j = 0; j < classes.length; j++) {
                 output[0] = classes[j];
                 for (int k = 0; k < methods.length; k++) {
-                    output[k + 1] = String.format("%1$,.3f", results[i][j][k]);
+                    output[k + 1] = String.format("%1$,.0f", results[i][j][k]);
                 }
                 System.out.format(String.format(format, output));
             }

@@ -24,11 +24,11 @@ public class Trainer {
         this.runner = runner;
     }
     public double calculateAverageTimeRun(String method, long numberOfIteration){
-        Date start = new Date();
+        long start = System.nanoTime();
         for(long i = 0; i < numberOfIteration; i++) {
             runner.run(method);
         }
-        Date end = new Date();
-        return (double) (end.getTime() - start.getTime()) / numberOfIteration;
+        long end = System.nanoTime();
+        return (double) (end - start) / numberOfIteration;
     }
 }
