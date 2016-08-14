@@ -1,0 +1,12 @@
+Test for 10000 collection volume:
+|Class       |add     |get     |remove  |contains  |populate  |iterator.add  |iterator.remove |
+|ArrayList   |0,000   |0,150   |0,000   |0,160     |1,720     |2,320         |0,000           |
+|LinkedList  |0,150   |0,000   |0,000   |0,000     |15,430    |0,000         |0,000           |
+|HashSet     |0,150   |0,000   |0,000   |0,000     |2,820     |0,000         |0,000           |
+|TreeSet     |0,000   |0,000   |0,000   |0,000     |2,560     |0,000         |0,000           |
+Test for 100000 collection volume:
+|Class       |add     |get     |remove  |contains  |populate  |iterator.add  |iterator.remove |
+|ArrayList   |0,460   |0,000   |0,000   |0,390     |64,840    |22,590        |0,000           |
+|LinkedList  |0,340   |0,230   |0,310   |0,630     |185,080   |0,000         |0,000           |
+|HashSet     |0,000   |0,000   |0,000   |0,000     |116,510   |0,000         |0,000           |
+|TreeSet     |0,000   |0,000   |0,000   |0,000     |18,900    |0,000         |0,000           |
