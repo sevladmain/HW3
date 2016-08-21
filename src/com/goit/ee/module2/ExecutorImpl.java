@@ -23,20 +23,20 @@ public class ExecutorImpl <T> implements Executor<T>{
 
 
     @Override
-    public void addTask(Task<T> task) {
+    public void addTask(Task<? extends T> task) {
         if (isExecuted){
             throw new IllegalStateException("Tasks are already executed");
         }
-        tasks.add(task);
+        tasks.add((Task<T>) task);
     }
 
     @Override
-    public void addTask(Task<T> task, Validator<T> validator) {
+    public void addTask(Task<? extends T> task, Validator<? super T> validator) {
         if (isExecuted){
             throw new IllegalStateException("Tasks are already executed");
         }
-        tasks.add(task);
-        this.validator = validator;
+        tasks.add((Task<T>) task);
+        this.validator = (Validator<T>) validator;
     }
 
     @Override
@@ -46,6 +46,7 @@ public class ExecutorImpl <T> implements Executor<T>{
         }
         for (Task<T> task :
                 tasks) {
+            task.execute();
             T result = task.getResult();
             if (validator.isValid(result)) {
                 validResults.add(result);
