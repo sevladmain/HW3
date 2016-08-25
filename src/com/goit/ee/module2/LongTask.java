@@ -10,7 +10,7 @@ public class LongTask implements Task<Long> {
     private Long result = 0l;
     @Override
     public void execute() {
-        result = System.currentTimeMillis();
+        result = 1l;
     }
 
     @Override

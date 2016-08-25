@@ -9,8 +9,7 @@ public class IntTask implements Task<Integer> {
     private Integer result = 0;
     @Override
     public void execute() {
-        result = new Date().getSeconds();
-        result = - result;
+        result = -1;
     }
 
     @Override
