@@ -1,45 +1,65 @@
 package com.goit.ee.module31;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by SeVlad on 01.09.2016.
  */
 public class SemaphoreImlp implements Semaphore {
-    private int permits;
+    private volatile int activePermits = 0;
+    private int maxPermits;
+    private final Object lock = new Object();
 
     public SemaphoreImlp() {
-        permits = 1;
+        this(1);
+    }
+
+    public SemaphoreImlp(int permits) {
+        if (permits <= 0 )
+            throw new IllegalArgumentException("Number of permits is negative: " + permits);
+        maxPermits = permits;
     }
 
     @Override
-    public synchronized void acquire() throws InterruptedException {
-       acquire(1);
-    }
-
-    @Override
-    public synchronized void acquire(int permits) throws InterruptedException {
-        if (permits <= 0)
-            throw  new IllegalArgumentException("Number of permits is nonpositive: " + permits);
-        while(this.permits != permits){
-            wait();
+    public void acquire() throws InterruptedException {
+        synchronized (lock) {
+            while (maxPermits == activePermits) {
+                wait();
+            }
+            activePermits++;
         }
-        if(permits == 1)
-            notify();
-        else
-            notifyAll();
+    }
+
+    @Override
+    public void acquire(int permits) throws InterruptedException {
+
+        if (permits <= 0 || permits > maxPermits)
+            throw new IllegalArgumentException("Number of permits is incorrect: " + permits);
+        for (int i = 0; i < permits; i++) {
+            acquire();
+        }
     }
 
     @Override
     public synchronized void release() {
-        release(1);
+        if (activePermits > 0) {
+            activePermits--;
+            notify();
+        }
     }
 
     @Override
-    public synchronized void release(int permits) {
-        
+    public void release(int permits) {
+        if (permits <= 0 || permits > maxPermits)
+            throw new IllegalArgumentException("Number of permits is incorrect: " + permits);
+        for (int i = 0; i < permits; i++) {
+           release();
+        }
     }
 
     @Override
     public int getAvailablePermits() {
-        return permits;
+        return activePermits;
     }
 }
