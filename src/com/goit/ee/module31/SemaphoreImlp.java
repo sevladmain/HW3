@@ -25,7 +25,7 @@ public class SemaphoreImlp implements Semaphore {
     public void acquire() throws InterruptedException {
         synchronized (lock) {
             while (maxPermits == activePermits) {
-                wait();
+                lock.wait();
             }
             activePermits++;
         }
@@ -42,10 +42,12 @@ public class SemaphoreImlp implements Semaphore {
     }
 
     @Override
-    public synchronized void release() {
-        if (activePermits > 0) {
-            activePermits--;
-            notify();
+    public void release() {
+        synchronized (lock) {
+            if (activePermits > 0) {
+                activePermits--;
+                lock.notify();
+            }
         }
     }
 
