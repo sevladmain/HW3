@@ -1,3 +1,5 @@
+package com.goit.javaonline.module4;
+
 import com.goit.javaonline.module4.*;
 
 /**
