@@ -7,8 +7,8 @@ import java.util.List;
  * Created by SeVlad on 21.08.2016.
  */
 public class ExecutorImpl <T> implements Executor<T>{
-    private List<Task<T>> tasks;
-    private Validator<T> validator;
+    private List<Task<? extends T>> tasks;
+    private Validator<? super T> validator;
     private boolean isExecuted;
     private List<T> validResults;
     private List<T> invalidResults;
@@ -27,7 +27,7 @@ public class ExecutorImpl <T> implements Executor<T>{
         if (isExecuted){
             throw new IllegalStateException("Tasks are already executed");
         }
-        tasks.add((Task<T>) task);
+        tasks.add(task);
     }
 
     @Override
@@ -35,8 +35,8 @@ public class ExecutorImpl <T> implements Executor<T>{
         if (isExecuted){
             throw new IllegalStateException("Tasks are already executed");
         }
-        tasks.add((Task<T>) task);
-        this.validator = (Validator<T>) validator;
+        tasks.add(task);
+        this.validator = validator;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ExecutorImpl <T> implements Executor<T>{
         if (validator == null){
             throw new IllegalStateException("Validator is not set");
         }
-        for (Task<T> task :
+        for (Task<? extends T> task :
                 tasks) {
             task.execute();
             T result = task.getResult();
